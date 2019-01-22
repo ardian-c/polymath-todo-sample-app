@@ -1,0 +1,39 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1><br />
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <form #form (submit)="addTodo($event)">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="form-group">
+                  <input name="todoText" [(ngModel)]="todoText" type="text" class="form-control" placeholder="todo..">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <button type="button" class="btn btn-primary" (click)="addTodo($event)">Add Todo</button>
+                </div>
+              </div>
+            </div>
+          </form>
+      </div>
+
+      <div class="col-md-12">
+        <div class="row" *ngFor="let todo of allTodos" style="margin-bottom: 1em;">
+          <div class="col-md-9">
+            <input class="form-control" type="text" [value]="todo.name" disabled />
+          </div>
+          <div class="col-md-3">
+            <button type="button" class="btn btn-danger" (click)="removeTodo(todo)">Remove Todo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
